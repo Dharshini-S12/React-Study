@@ -1,45 +1,53 @@
 import React, { useState } from 'react';
 import Arraylist from './Arraylist';
-const Arrayelements = () =>{
-    const list = [
+
+const Arrayelements = () => {
+    const initialList = [
+        
         {
-            id:1,
-            name:"Dharshu",
-            address:"Namakkal"
+            id: 1,
+            name: "Dharshu",
+            address: "Namakkal"
         },
         {
-            id:2,
-            name:"Poovitha",
-            address:"Namakkal"
+            id: 2,
+            name: "Poovitha",
+            address: "Namakkal"
         },
     ];
 
-        const [lists, setLists] = useState(list);
+    const [list, setList] = useState(initialList);
 
-        const add = () => {
-            setLists([
-                ...list,
-                {
-                    id:3,
-                    name:"Goobika",
-                    address:"Namakkal"
-                },
-            ])
-        };
-    return(
+    const array = () => {
+        setList([
+            ...list,
+            {
+                id: 3,
+                name: "Goo",
+                address: "Namakkal"
+            }
+        ]);
+    };
+
+    return (
         <>
-           <h5>Array and Mapping</h5>
-           <table>
-               <thead>
-                   <th>Name</th>
-                   <th>Address</th>
-               </thead>
-               <tbody>
-                  {list.map(m=> <Arraylist key={m.id} lists={m} />)}
-               </tbody>
-           </table>
-           <button onClick={add}>Add</button>
+            <h5>Array and Mapping</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {list.map(item => (
+                        <Arraylist key={item.id} lists={item} />
+                    ))}
+                </tbody>
+            </table>
+            <button onClick={array}>ADD</button>
         </>
-    )
+    );
 }
+
 export default Arrayelements;
